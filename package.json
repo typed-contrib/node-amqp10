@@ -1,0 +1,45 @@
+{
+  "name": "typed-amqp10",
+  "version": "3.3.0",
+  "description": "Type definitions for https://github.com/noodlefrenzy/node-amqp10",
+  "main": "index.js",
+  "author": "typed-contrib",
+  "license": "MIT",
+  "homepage": "https://github.com/typed-contrib/node-amqp10#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/typed-contrib/node-amqp10.git"
+  },
+  "bugs": {
+    "url": "https://github.com/typed-contrib/node-amqp10/issues"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "postinstall": "typings install",
+    "test": "cd test && typings install && tsc -p ."
+  },
+  "keywords": [
+    "typings",
+    "definitions",
+    "typescript",
+    "sql",
+    "sqlserver",
+    "microsoft",
+    "azure",
+    "storage",
+    "table",
+    "tedious",
+    "msnodesql",
+    "msnodesqlv8",
+    "tds",
+    "typed-contrib",
+    "typed",
+    "tsd"
+  ],
+  "devDependencies": {
+    "typings": "^1.0.4",
+    "typescript": "^1.8.10"
+  }
+}
