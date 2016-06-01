@@ -1,0 +1,10 @@
+{
+  "version": false,
+  "globalDependencies": {
+    "es2015-promise": "registry:env/es2015-promise#1.0.0+20160526151700",
+    "node": "registry:dt/node#6.0.0+20160514165920"
+  },
+  "dependencies": {
+    "amqp10": "file:../typings.json"
+  }
+}
