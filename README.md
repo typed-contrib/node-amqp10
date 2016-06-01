@@ -53,7 +53,7 @@ Some resources to help writing Typescript type definitions:
 ## Tests
 
 This type definitions are tested using source `node-amqp10` samples.
- * [JavaScript](https://github.com/noodlefrenzy/node-amqp10)
+ * [JavaScript](https://github.com/noodlefrenzy/node-amqp10/tree/master/examples)
  * [TypeScript](https://github.com/typed-contrib/node-amqp10/tree/master/test)
 
 ## License
