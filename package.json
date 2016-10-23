@@ -1,6 +1,6 @@
 {
   "name": "typed-amqp10",
-  "version": "3.1.4",
+  "version": "3.3.1",
   "description": "Type definitions for https://github.com/noodlefrenzy/node-amqp10",
   "main": "index.js",
   "author": "typed-contrib",

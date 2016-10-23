@@ -1,9 +1,9 @@
 {
     "name": "amqp10",
     "main": "lib/index.d.ts",
-    "version": "3.1.4",
+    "version": "3.3.1",
     "globalDependencies": {
         "es2015-promise": "registry:env/es2015-promise#1.0.0+20160526151700",
-        "node": "registry:dt/node#6.0.0+20160514165920"
+        "node": "registry:env/node#6.0.0+20161019193037"
     }
 }

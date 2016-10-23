@@ -23,31 +23,31 @@ export import Errors = require("./errors");
 export namespace Policy {
     export import PolicyBase = _Policy;
     export const Default: _Policy;
-    
+
     export const EventHub: typeof _EventHub;
     export const ServiceBusQueue: typeof _ServiceBusQueue;
     export const ServiceBusTopic: typeof _ServiceBusTopic;
     export const QpidJava: typeof _QpidJava;
     export const ActiveMQ: typeof _ActiveMQ;
-    
+
     export import Utils = _Utils;
-    
+
     /**
      * Create a new Policy by extending the Base Policy.
-     * 
+     *
      * @param overrides - Configuration overrides.
      * @returns Extended configuration.
      */
     export function merge(overrides: Options.Overrides): PolicyBase
     /**
      * Create a new Policy by extending given base policy using given overrides configuration.
-     * 
+     *
      * @param overrides - Configuration overrides.
      * @param base - Base configuration to extend.
      * @returns Extended configuration.
      */
     export function merge(overrides: Options.Overrides, base: PolicyBase): PolicyBase;
-    
+
     /** Typings only */
     export namespace Options {
         export type Overrides = _Policy.Overrides;
@@ -66,6 +66,7 @@ export namespace Policy {
 }
 
 export import TransportProvider = require("./transport/index");
+export import DescribedType = require("./types/described_type");
 
 /**
  * translator, which allows you to translate from node-amqp-encoder'd
