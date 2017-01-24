@@ -14,15 +14,16 @@ declare class Link extends EventEmitter {
     session: Session;
     handle: string;
     remote: Link.Remote;
+    deliveryCount: number;
     linkSM: any;
-    
+
     name: string;
     role: boolean;
     linkCredit: number;
     totalCredits: number;
     available: number;
     drain: boolean;
-    
+
     /** On receipt of a message.  Message payload given as argument. */
     static MessageReceived: "message";
 
@@ -40,14 +41,15 @@ declare class Link extends EventEmitter {
 
     /** On completion of detach. */
     static Detached: "detached";
-    
+
     constructor(session: Session, handle: string, linkPolicy: LinkPolicy);
-    
+
     state(): string;
     attach(): void;
-    detach(): Promise<void>;
+    detach(options?: Link.DetachOptions): Promise<void>;
     forceDetach(): void;
-    flow(flowOptions: Link.FlowOptions): void;
+    flow(flowOptions?: Link.FlowOptions): void;
+    shouldReatttach(): boolean;
 }
 
 declare namespace Link {
@@ -56,7 +58,7 @@ declare namespace Link {
         attach: any;
         detach: any;
     }
-    
+
     export interface FlowOptions {
         channel?: string;
         handle?: string;
@@ -68,6 +70,13 @@ declare namespace Link {
         available?: boolean;
         deliveryCount?: number;
         drain?: boolean;
+    }
+
+    export interface DetachOptions {
+        handle?: string;
+        channel?: string;
+        closed?: boolean;
+        error?: any;
     }
 }
 

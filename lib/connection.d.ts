@@ -116,8 +116,14 @@ import Session = require("./session");
  */
 declare class Connection extends EventEmitter {
     policy: Policy.Connect;
+    connected: boolean;
+    connectedTo: any;
+
+    local: any;
+    remote: any;
+
     connSM: any;
-    
+
     static Connected: "connection:connected";
     static Disconnected: "connection:disconnected";
     /**
@@ -131,15 +137,15 @@ declare class Connection extends EventEmitter {
      * received AMQPError as an argument.
      */
     static ErrorReceived: "connection:errorReceived";
-    
+
     /**
      * Creates a new Connection instance.
-     * 
+     *
      * @param connectPolicy ConnectPolicy from a Policy instance
      * @constructor
      */
     constructor(connectPolicy: Policy.Connect);
-    
+
     /**
      * Open a connection to the given (parsed) address (@see {@link AMQPClient}).
      *
@@ -147,14 +153,14 @@ declare class Connection extends EventEmitter {
      * @param sasl      If given, contains a "negotiate" method that, given address and a callback, will run through SASL negotiations.
      */
     open(address: Policy.Address, sasl?: { negotiate(address: Policy.Address, callback: Function): void; }): void;
-    
+
     close(): void;
-    
+
     sendFrame(frame: any): void;
-    
+
     associateSession(session: Session): number;
     dissociateSession(channel: number): void;
-    
+
     sendHeader(header: Buffer): void;
 }
 

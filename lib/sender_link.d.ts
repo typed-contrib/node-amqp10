@@ -11,11 +11,12 @@ import { BaseError } from "./errors";
 
 declare class SenderLink extends Link {
     policy: Policy.SenderLink;
+    initialDeliveryCount: number;
 
     constructor(session: Session, handle: string, linkPolicy: Policy.SenderLink);
 
     canSend(): boolean;
-    
+
     /**
      * Sends the given message, with the given options on this link
      *
@@ -28,22 +29,23 @@ declare class SenderLink extends Link {
     *                               to AMQP Fields type as defined in the spec.
     */
     send(message: any, options?: SenderLink.MessageOptions | Object): Promise<DeliveryState>;
-    
+
     /** Error event handler */
     on(event: "errorReceived", listener: (err: BaseError) => void): this;
+    on(event: "creditChange" | "attached" | "detached", listener: Function): this;
     on(event: string, listener: Function): this;
 }
 
 declare namespace SenderLink {
-    export interface Dictionary<T> { 
+    export interface Dictionary<T> {
         [key: string]: T;
     }
-    
+
     export interface MessageOptions extends Dictionary<any> {
         body: any;
-        
+
         properties?: Dictionary<any>;
-        
+
         /**
          * Annotations for the message, if any.  See AMQP spec for details, and server for specific
          * annotations that might be relevant (e.g. x-opt-partition-key on EventHub).  If node-amqp-encoder'd
@@ -51,7 +53,7 @@ declare namespace SenderLink {
          * to AMQP Fields type as defined in the spec.
          */
         annotations?: Dictionary<any>;
-        
+
         applicationProperties?: Dictionary<any>;
     }
 }
