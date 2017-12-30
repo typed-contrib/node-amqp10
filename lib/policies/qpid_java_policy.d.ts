@@ -5,4 +5,6 @@
 
 import Policy = require("./policy");
 
-export = new Policy();
+declare const policy: Policy;
+export = policy;
+
