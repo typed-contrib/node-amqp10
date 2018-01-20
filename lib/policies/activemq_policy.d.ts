@@ -4,5 +4,5 @@
 // Definitions: https://github.com/typed-contrib/node-amqp10
 
 import Policy = require("./policy");
-
-export = new Policy();
+declare const policy: Policy;
+export = policy;
